@@ -510,7 +510,7 @@ int BearSSLClient::clientRead(void *ctx, unsigned char *buf, size_t len)
   Client* c = (Client*)ctx;
 
   if (!c->connected()) {
-    return -1;
+    return c->read(buf, len);
   }
 
   int result = c->read(buf, len);
